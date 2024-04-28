@@ -1,0 +1,106 @@
+/* 
+ *	GottJesus 1.04.2024
+ * 	CSS-Layout Paul Richter
+ */
+
+*								{margin: 0px; padding: 0px;}
+html, body					{ width: 100%; height: 100%; min-height: 37.5em; min-width: 37.5em; }
+.gotigBackground		{  background-image: url('../../public/img/body.svg'); }
+.darkerBackground		{ background-color: #151515; }
+/* html, body			{min-width: 37.5em ; width: 100%; min-height: 37.5em; height: 100%;  background-image: url('../../public/img/body.svg'); } */
+
+	/*Allgemeine css angaben*/
+	
+.red					{ color: #FF0000; }
+.leuchtblue			{ color: #1608D3; }
+.blue					{ color: #0000FF; }
+.micblue			{ color: #3399FF;}
+.navy					{ color: #000080; }
+.facblue				{ color: #3b5998; }
+.whatblue			{ color: #34B7F1 }
+.gold					{ color: #FFD700;}
+.grau					{ color: #858585; }
+.weiss				{ color: #FFFFFF;}
+.braun				{ color: #996600; }
+/* Grün */
+.lightgreen			{ color: #66FF33; }
+.lawngreen			{ color: #7CFC00; }
+.fuchsia				{ color: #FF00FF; }
+.yellow				{ color: #FFFF00; }
+	
+.hoch1				{ height: 1.1em; }
+.hoch2				{ height: 2.2em; }
+.hoch4				{ height: 3.2em; }		/* 50px */
+.hoch5				{ height: 5.0em; }		/* 80px */	
+
+.boxShadow		{ box-shadow: 0.1rem 0.1rem 0.8rem rgb(75 80 89 / 20%); }
+.boxTable			{ box-sizing: border-box; }
+.hrefNo				{ text-decoration: none; }
+.row					{ display: flex; flex-direction: row; }  /* [x x x    ] left positionier */	
+
+
+	/* views/header.php
+	-------------------------- */
+.headerInclude			{ min-width: 37.0em; /* border: 1px solid red; */ }	
+div.headerTab			{ background-image: url('../../public/img/schwarz10.png'); height: 3.0em; border-bottom: 1px solid #999;  }
+
+
+
+	/* views/footer.php
+	------------------------ */
+.footerInclude			{ min-width: 37.0em; height: 2.5em; margin-top: -2.5em; }	
+div.footerTab				{ background-image: url('../../public/img/schwarz10.png');   border-top: 1px solid #999; }	
+div.footerTab small		{ color: #999; }
+
+
+	/* views/login.view.php
+	------------------ */
+	/* min-height: 600px(37.5em)  min-width: 576px(36.0em) */
+div.container				{ min-height: 100%; position: relative; }
+div.loginBox				{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); -webkit-transform: translate(-50%, -50%);
+								  -ms-transform: translate(-50%, -50%); width: 19.0em;   
+								}
+div.loginFehler			{ background: rgb(243, 199, 199); border: 1px solid rgb(252, 0, 0); color: red; padding: 10px; font-size: 1.1em; }									
+input.loginInput			{ background: transparent; width: 97%; border: 0px solid transparent; border-style: none; letter-spacing: 1.75em; 
+								  border-bottom: #999 3px solid; text-align: center; padding: 5px 0; font-size: 1.1em; outline: none; }
+div.loginInput:hover	{ outline: none; }
+div.loginInput:focus	{  outline: none;  }									
+
+
+
+	/* views/customerheader.php
+	---------------------------- */
+.customerHead			{ font-size: 1.2em; padding: 1.0em 0.0em; }	
+
+
+	/* views/customer.view.php
+	------------------------------*/
+div.customerBox			{ display: flex; flex-direction: column; min-width: 37.0em; height: 100%; min-height: 100%; 
+								  padding: 0em 0.625em; color: white; }
+header.customerHeader	{ height: auto; }								  		
+article.customerArticle{ flex: 1; display: flex; border-top: 3px solid #66FF33; border-bottom: 3px solid #66FF33; }
+section.flexSection		{ flex-grow: 1; flex-basis: 50%; }
+section.sectionBorder	{ border-left: 2px dashed #66FF33; padding-left: 10px; }	
+table.sectionTab			{ font-size: 1.2em; }							  		
+							  		
+footer.customerFooter{ height: auto; }	
+input.auswahlInput		{ background-color: transparent; width: 2.0em; border: 0; border-bottom: 1px solid white; 
+								  outline: none; font-size: 1.1em; color: white; letter-spacing: 5px;
+ 		   						}
+div.customerFehler		{ background-color: #ff9980; color: #000080; padding: 5px 0; max-height: 40px; overflow: scroll; }																  		
+
+
+
+
+@media only screen and (max-width: 1205px) {  }
+@media only screen and (max-width: 805px)  { }
+@media (max-width: 576px){  }
+
+
+
+
+	/* views/fehler/index.php
+	------------------------------ */
+div.fehler				{ background: #FFCCCC; border: 2px solid #FF3333; padding: 0.8em;  margin: 1.0em; box-shadow: 0px 10px 14px -7px #000; }
+div.fehlerText		{ padding: 0 0.8em; font-size: xx-large; color: #CC0000; /* border: 1px solid red; */ }	
+	

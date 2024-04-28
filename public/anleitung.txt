@@ -1,0 +1,84 @@
+						Kurze Anleitung zum starting
+						
+	yuotube link: https://www.youtube.com/watch?v=q0JhJBYi4sw	
+	
+	
+	ACHTUNG: die head.view.php muss immer in html/head immer includet, da sind content, title,
+					 css, icons und verschieden javascript angebunden 
+					 + 
+					 Globale konstante:  URL(javascript) und andere
+					
+						
+	1. http://localhost:8888/verwaltung/
+	wenn in der link wird nichts angegeben dann wir als Standart die controllers/login seite abgerufen
+	in der App.php Zeile: 13
+	
+	2. http://localhost:8888/verwaltung/customer 
+		 wenn in link wird die customer eingefügt dann wird in
+		 App.php Zeile: 25 geprüft ob solche seite vorhanden is, wenn nein
+		 dann wird die error seite geladen, App.php Zeile: 34...
+		 wenn siete vorhanden ist dan wir die angegebene(customer) laden, App.php Zeile: 28
+		 und gleich wird an den controllers/customer die methode index gestartet
+		 mid den befel: call_user_func_array([$controller, $this->method], $URL); in App.php Zeile: 51
+		 Quasi gesagt der befel 
+		 			call_user_func_array([$controller, $this->method], $URL);
+		  ist das gleiche wie:
+		 $customer = new Customer;  // ist der class Customer in controllers/customer
+		 $customer->index();				// startet die function index in controllers/customer
+		 
+		 der new Class wir in App.php Seite: 38 erzeugt: $controller = new $this->controller;
+		 
+	3.	weiter in den controllres/customer in der methode index wird die views seite geladen
+		mit der methode, was liegt  in der core/Controller(Haupt)(weil der Haupt Controller ich extends in der 
+		customer controllers) ... alls siet so aus...
+		
+		class Customer extends Controller {	
+			public function index(){
+				
+				echo'This is the Customer controller';
+				
+				$this->view('customer'); // abgerufene methode view in der core/Controller
+				
+			}
+		}
+		
+	4.	Kurze ablauf nach dem start; 
+		ACHTUNG: wenn keine session vorhanden ist wird login seite angezeigt....
+		
+		ersten Start: den class App.php starten die function index() in controllers/login(oder was wird in link angegeben)
+		in der controllers/login ist der Haupt controller(core/Controller) includet, er ruft mit den function
+		render die view seite auf(views/login.view.php)... wenn wird nötig eine verbindung zu MySql dann
+		in der controllers/login wird den class von model abgeruffen er hatte den core/Model class scho includet,
+		und der Model class hatte den Database class includet...... Beispiel unten
+		class Login {
+		use Controller;
+		
+		public function index(){
+			
+			$user = new User;   // den User class initialisieren(er hatte den class Model(Model hatte den class Database) )
+			
+			
+			// für neue user registrirung -> mit den function: $user->insert($arr); $arr= sind Daten von neuen User
+		/* 	$arr['datum'] = date("Y-m-d H:i:s");
+			$arr['letztelogin'] = date("Y-m-d H:i:s");
+			$arr['cookie'] = "987654321";
+			$arr['login'] = "Letzte";
+			$arr['password'] = "sob";
+			$arr['passrecovery'] = "0987654321";
+			$arr['role'] = "default";
+			$arr['other'] = ""; */
+			
+		
+			 $arr['id'] = 6;
+			 //$arr['login'] = "Apostel";
+			 
+			$result = $user->where($arr);			// holed Daten von user unter den ID 6 (where function in Model class)
+			show($result);															(der Model class ist durch new User includet)
+			
+			// die login Seite laden von views/login.view.php
+			//echo'This is the Login controller';
+			$this->view('login');
+		}
+		 
+		 
+		 					
